@@ -60,12 +60,17 @@ SELECT * FROM tb_personagens WHERE ataque BETWEEN 1000 AND 2000;
 SELECT * FROM tb_personagens WHERE nome LIKE '%C%' OR nome LIKE '%c%';
 
 -- Faça um um select com Inner join entre tabela classe e personagem.
-SELECT * FROM tb_personagens 
+SELECT 
+tb_personagens.nome, tb_classe.nome as 'classe', tb_classe.arma,
+tb_personagens.defesa, tb_personagens.ataque
+FROM tb_personagens 
 INNER JOIN tb_classe 
 ON tb_personagens.classe_id = tb_classe.id;
 
 -- Faça um select onde traga todos os personagem de uma classe específica (exemplo todos os personagens que são arqueiros).
-SELECT * FROM tb_personagens 
+SELECT 
+tb_personagens.nome, tb_classe.nome as 'classe' 
+FROM tb_personagens 
 INNER JOIN tb_classe
 ON tb_personagens.classe_id = tb_classe.id
 WHERE tb_classe.nome = 'Arqueiro';

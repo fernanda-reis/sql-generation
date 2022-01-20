@@ -60,13 +60,15 @@ SELECT * FROM tb_pizza WHERE valor BETWEEN 29 AND 60;
 SELECT * FROM tb_pizza WHERE nome LIKE '%C%' OR nome LIKE '%c%';
 
 -- Faça um um select com Inner join entre tabela categoria e pizza.
-SELECT * FROM tb_pizza 
+SELECT 
+tb_pizza.nome, tb_categoria.nome as 'tipo', tb_pizza.valor
+FROM tb_pizza 
 INNER JOIN tb_categoria
 ON tb_pizza.categoria_id = tb_categoria.id;
 
 -- Faça um select onde traga todos os Produtos de uma categoria específica (exemplo todos
 -- os produtos que são pizza doce).
-SELECT * FROM tb_pizza 
+SELECT tb_pizza.nome, tb_categoria.nome as 'tipo' FROM tb_pizza 
 INNER JOIN tb_categoria 
 ON tb_pizza.categoria_id = tb_categoria.id
 WHERE tb_categoria.nome = 'Doces';

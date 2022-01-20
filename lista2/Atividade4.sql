@@ -60,13 +60,17 @@ SELECT * FROM tb_produto WHERE valor BETWEEN 3 AND 60;
 SELECT * FROM tb_produto WHERE nome LIKE '%C%' OR nome LIKE '%c%';
 
 -- Faça um um select com Inner join entre tabela categoria e produto.
-SELECT * FROM tb_produto
+SELECT 
+tb_produto.nome, tb_categoria.nome as 'tipo', tb_produto.valor 
+FROM tb_produto
 INNER JOIN tb_categoria
 ON tb_produto.categoria_id = tb_categoria.id;
 
 -- Faça um select onde traga todos os Produtos de uma categoria específica (exemplo todos
 -- os produtos que são aves ou legumes).
-SELECT * FROM tb_produto
+SELECT 
+tb_produto.nome, tb_categoria.nome as 'tipo' 
+FROM tb_produto
 INNER JOIN tb_categoria
 ON tb_produto.categoria_id = tb_categoria.id
 WHERE tb_categoria.nome = 'Ácidas';
